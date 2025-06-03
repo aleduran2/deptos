@@ -16,7 +16,7 @@ export default function App() {
     Object.entries(form).forEach(([key, val]) => {
       if (val) params.append(key, val);
     });
-    const res = await axios.get(`http://localhost:3000/buscar-departamentos?${params}`);
+    const res = await axios.get(`https://deptos.onrender.com/buscar-departamentos?${params}`);
     setResultados(res.data.resultados);
   };
 
