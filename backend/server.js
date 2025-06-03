@@ -74,6 +74,13 @@ app.get('/buscar-departamentos', async (req, res) => {
   res.json({ cantidad: resultados.length, resultados });
 });
 
+// 👉 Servir el frontend desde Express
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
