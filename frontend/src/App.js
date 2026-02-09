@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function App() {
-  const [form, setForm] = useState({ precioMin: '', precioMax: '', ambientes: '', cochera: false, balcon: false });
+  const [form, setForm] = useState({ precioMin: '', precioMax: '', ambientes: '', barrio: '', cochera: false, balcon: false });
   const [resultados, setResultados] = useState([]);
 
   const handleChange = (e) => {
@@ -29,6 +29,9 @@ export default function App() {
         <input name="ambientes" placeholder="Cantidad de ambientes" value={form.ambientes} onChange={handleChange} className="border p-2" />
         <label><input type="checkbox" name="cochera" checked={form.cochera} onChange={handleChange} /> Cochera</label>
         <label><input type="checkbox" name="balcon" checked={form.balcon} onChange={handleChange} /> Balcón</label>
+      </div>
+      <div className="max-w-xl mb-4">
+        <input name="barrio" placeholder="Barrio" value={form.barrio} onChange={handleChange} className="border p-2 w-full" />
       </div>
       <button onClick={buscar} className="bg-blue-600 text-white px-4 py-2 rounded">Buscar</button>
       <div className="mt-6 grid gap-4">
